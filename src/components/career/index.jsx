@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Container, DivTitle, Title, DescCareer, LiCareer, PCareer, DivIcons,Icons } from './styles'
-import html from './images/html.png'
-import css from './images/css.png'
-import Bootstrap from './images/Bootstrap.png'
+// import html from './images/html.png'
+// import css from './images/css.png'
+// import Bootstrap from './images/Bootstrap.png'
 import JS from './images/JS.png'
 import ReactJS from './images/ReactJS.png'
 import nodejs from './images/nodejs.png'
@@ -10,9 +10,9 @@ import typescript from './images/typescript.png'
 import java from './images/java.png'
 import python from './images/python.png'
 import git from './images/Git.png'
-import c from './images/C.png'
-import cSharp from './images/CSharp.png'
-import api from './images/api.png'
+// import c from './images/C.png'
+// import cSharp from './images/CSharp.png'
+// import api from './images/api.png'
 import postgresql from './images/postgresql.png'
 import mysql from './images/mysql.png'
 
@@ -60,21 +60,13 @@ export default class Career extends Component {
 
           <DivIcons>
             <FadeInUp duration="0.6s" delay="0.2s">
-              <Icons src={html}/>
-              <Icons src={css}/>
-              <Icons src={Bootstrap}/>
               <Icons src={JS}/>
               <Icons src={ReactJS}/>
               <Icons src={nodejs}/>
               <Icons src={typescript}/>
-            </FadeInUp>
-            <FadeInUp duration="0.6s" delay="0.4s">
               <Icons src={java}/>
               <Icons src={python}/>
               <Icons src={git}/>
-              <Icons src={c}/>
-              <Icons src={cSharp}/>
-              <Icons src={api}/>
               <Icons src={postgresql}/>
               <Icons src={mysql}/>
             </FadeInUp>

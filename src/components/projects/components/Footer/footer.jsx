@@ -21,7 +21,7 @@ export default class Footer extends Component {
             <IconsProfile>
               <Location href='https://github.com/HeitorFM2' target="_blank" rel="noopener noreferrer"><FaGithub  size={40} /></Location>
               <Location href='https://www.linkedin.com/in/heitor-melegate/' target="_blank" rel="noopener noreferrer"><FaLinkedin  size={40} /></Location>
-              <Location href='mailto:heitorfm3@gmail.com' target="_blank" rel="noopener noreferrer"><AiOutlineMail  size={40} /></Location>
+              <Location href='mailto:heitorfm.dev@gmail.com' target="_blank" rel="noopener noreferrer"><AiOutlineMail  size={40} /></Location>
             </IconsProfile>
         </div>
       </Container>

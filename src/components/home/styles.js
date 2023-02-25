@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.div`
     width: 100%;
     height: 100vh;
-    background:linear-gradient(180deg, #404147 0%, #373940 100%);
 `
 
 export const Description = styled.div`
@@ -12,12 +11,26 @@ export const Description = styled.div`
     justify-content: space-around;
     width: 100%;
     height: 100vh;
-    background:linear-gradient(180deg, #404147 0%, #373940 100%);
+
+    @media (max-width: 480px) {
+        flex-direction: column;   
+    }
+`
+
+export const Text = styled.div`
+    @media (max-width: 480px) {
+        margin-top: 15rem;  
+    }
 `
 
 export const Profileimg = styled.img`
     width: 60vh;
     height: 60vh;
+
+    @media (max-width: 480px) {
+        width: 40vh;
+        height: 40vh;
+    }
 `
 
 export const Location = styled.a`
@@ -29,6 +42,10 @@ export const IconsProfile = styled.div`
     display: flex;
     justify-content: space-evenly;
     width: 42vh;
+
+    @media (max-width: 480px) {
+        width: 28vh;
+    }
 `
 
 export const Title = styled.p`
@@ -37,6 +54,11 @@ export const Title = styled.p`
     width:50vh;
     text-align: center;
     font-weight: 200;
+
+    @media (max-width: 480px) {
+        font-size: 35px;
+        width:35vh;
+    }
 `
 
 export const Desc = styled.p`
@@ -45,4 +67,9 @@ export const Desc = styled.p`
     width:60vh;
     text-align: left;
     font-weight: 100;
+    
+    @media (max-width: 480px) {
+        font-size: 15px;
+        width:40vh;
+    }
 `

@@ -10,11 +10,20 @@ export const Container = styled.footer`
     justify-content: space-around;
 
     color: white;
+
+    @media (max-width: 480px) {
+        height: 180px;
+        flex-direction: column-reverse;
+        font-size: 12px;
+    }
 `
 
 export const Location = styled.a`
     text-decoration: none;
     color: black;
+    @media (max-width: 480px) {
+        margin-top: 1rem;
+    }
 `
 
 export const IconsProfile = styled.div`

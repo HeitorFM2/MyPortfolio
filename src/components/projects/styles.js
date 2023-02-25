@@ -3,7 +3,11 @@ import styled from "styled-components";
 export const Container = styled.div`
     width: 100%;
     height: 80vh;
-    background-color: #33353C;
+
+    @media (max-width: 480px) {
+        margin-top: 5rem;   
+        height: 90vh;
+    }
 `
 
 export const Title = styled.p`
@@ -15,6 +19,9 @@ export const Title = styled.p`
     margin: 0;
     text-shadow: black 0.05em 0.05em 0.1em;
     font-style: italic;
+    @media (max-width: 480px) {
+        font-size: 32px;
+    }
 `
 
 export const DivTitle = styled.div`
@@ -27,11 +34,19 @@ export const DivTitle = styled.div`
     font-weight: 200;
     display:flex;
     align-items: center;
+    @media (max-width: 480px) {
+        margin-left: 2vh;   
+        width: 25vh;
+        height: 8vh;
+    }
 `
 
 export const DescProjects = styled.p`
     margin-left: 20vh;
     margin-bottom: 10vh;
+    @media (max-width: 480px) {
+        margin-left: 2vh;   
+    }
 `
 
 export const TitleProjects= styled.a`
@@ -40,6 +55,9 @@ export const TitleProjects= styled.a`
     font-size: 25px;
     font-weight: 300;
     text-decoration: none;
+    @media (max-width: 480px) {
+        font-size: 20px;  
+    }
 `
 
 export const PProjects= styled.p`
@@ -48,6 +66,11 @@ export const PProjects= styled.p`
     font-size: 18px;
     font-weight: 300;
     margin: 0;
+    @media (max-width: 480px) {
+        font-size: 12px;  
+        width: 20rem;
+        font-weight: 100;
+    }
 `
 export const ClickHere= styled.a`
     color: #7DC1FF;

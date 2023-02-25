@@ -10,12 +10,22 @@ export const Container = styled.header`
     align-items: center;
     justify-content: center;
     z-index: 1;
+    @media (max-width: 480px) {
+        width: 400px;
+    }
 `
 
-export const Location = styled.a`
+export const Location = styled.li`
     margin-right: 40px;
     text-decoration: none;
     color: white;
     font-family: 'Roboto Mono', monospace;
     font-weight: 200;
+    list-style-type: none;
+    cursor: pointer;
+
+    @media screen and (max-width: 700px) {
+        margin-right: 20px;
+        font-size: 12px;
+    }
 `

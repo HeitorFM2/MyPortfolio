@@ -3,10 +3,13 @@ import styled from "styled-components";
 export const Container = styled.div`
     width: 100%;
     height: 100vh;
-    background:linear-gradient(180deg, #373940 0%, #33353C 100%);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+
+    @media (max-width: 480px) {
+        margin-top: 5rem;   
+    }
 `
 
 export const Title = styled.p`
@@ -18,11 +21,13 @@ export const Title = styled.p`
     margin: 0;
     text-shadow: black 0.05em 0.05em 0.1em;
     font-style: italic;
+    @media (max-width: 480px) {
+        font-size: 32px;   
+    }
 `
 
 export const DivTitle = styled.div`
     background-color: #2D2E34;
-    font-size: 42px;
     margin-left: 20vh;
     margin-bottom: 6vh;
     width: 35vh;
@@ -30,9 +35,18 @@ export const DivTitle = styled.div`
     font-weight: 200;
     display:flex;
     align-items: center;
+    @media (max-width: 480px) {
+        margin-left: 2vh;   
+        width: 25vh;
+        height: 8vh;
+    }
 `
 export const DescCareer = styled.div`
     margin-left: 16vh;
+    @media (max-width: 480px) {
+        margin-left: 0;
+        font-size: 12px;
+    }
 `
 
 export const LiCareer = styled.li`
@@ -44,15 +58,26 @@ export const PCareer = styled.p`
     color: white;
     font-size: 14px;
     font-weight: 200;
+    @media (max-width: 480px) {
+        width: 20rem;
+        font-size: 12px;
+        font-weight: 10;
+    }
 `
 
 export const DivIcons = styled.div`
     margin-left: 14vh;
     display:flex;
     margin-bottom: 10vh;
+    @media (max-width: 480px) {
+        margin-left: 2vh;
+    }
 `
 
 export const Icons = styled.img`
     margin-left: 6vh;
     width:50px;
+    @media (max-width: 480px) {
+        margin-left: 1vh;   
+    }
 `
