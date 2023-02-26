@@ -10,9 +10,6 @@ export const Container = styled.header`
     align-items: center;
     justify-content: center;
     z-index: 1;
-    @media (max-width: 480px) {
-        width: 400px;
-    }
 `
 
 export const Location = styled.li`

@@ -10,6 +10,7 @@ import typescript from './images/typescript.png'
 import java from './images/java.png'
 import python from './images/python.png'
 import git from './images/Git.png'
+import php from './images/php.png'
 // import c from './images/C.png'
 // import cSharp from './images/CSharp.png'
 // import api from './images/api.png'
@@ -65,6 +66,7 @@ export default class Career extends Component {
               <Icons src={nodejs}/>
               <Icons src={typescript}/>
               <Icons src={java}/>
+              <Icons src={php}/>
               <Icons src={python}/>
               <Icons src={git}/>
               <Icons src={postgresql}/>
