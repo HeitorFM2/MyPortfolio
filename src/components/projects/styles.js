@@ -13,39 +13,45 @@ export const Container = styled.div`
 export const Title = styled.p`
     color: white;
     font-size: 42px;
-    width:50vh;
+    width:50vw;
     text-align: center;
-    font-weight: 800;
+    font-weight: 500;
     margin: 0;
     text-shadow: black 0.05em 0.05em 0.1em;
     font-style: italic;
     @media (max-width: 480px) {
-        font-size: 32px;
+        font-size: 28px;   
     }
 `
 
 export const DivTitle = styled.div`
     background-color: #2D2E34;
-    font-size: 42px;
-    margin-left: 20vh;
+    margin-left: 10%;
     margin-bottom: 6vh;
-    width: 35vh;
+    width: 15%;
     height: 10vh;
     font-weight: 200;
     display:flex;
     align-items: center;
+
+    @media (max-width: 1500px) {
+        width: 20%;
+        height: 8vh;
+    }
+
     @media (max-width: 480px) {
-        margin-left: 2vh;   
-        width: 25vh;
+        margin-left: 2vw;   
+        width: 48%;
         height: 8vh;
     }
 `
 
 export const DescProjects = styled.p`
-    margin-left: 20vh;
+    margin-left: 10vw;
     margin-bottom: 10vh;
     @media (max-width: 480px) {
-        margin-left: 2vh;   
+        margin-left: 2vw;;
+        font-size: 12px;
     }
 `
 

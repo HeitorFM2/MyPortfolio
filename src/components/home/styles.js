@@ -23,7 +23,7 @@ export const Description = styled.div`
         margin: 0;
 
         @media (max-width: 480px) {
-            margin-top: 250px;  
+            margin-top: 350px;  
         }
     
         .Title{

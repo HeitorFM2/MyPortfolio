@@ -9,6 +9,10 @@ export const Container = styled.div`
     @media (max-width: 480px) {
         margin-top: 45%;   
     }
+
+    @media (max-width: 400px) {
+        margin-top: 300px;   
+    }
 `
 
 export const Title = styled.p`
@@ -34,11 +38,18 @@ export const DivTitle = styled.div`
     font-weight: 200;
     display:flex;
     align-items: center;
+
+    @media (max-width: 1500px) {
+        width: 20%;
+        height: 8vh;
+    }
+
     @media (max-width: 480px) {
         margin-left: 2vw;   
         width: 48%;
         height: 8vh;
     }
+
 `
 export const DescCareer = styled.div`
     margin-left: 8vw;
