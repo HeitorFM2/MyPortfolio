@@ -37,13 +37,29 @@ export default class Career extends Component {
             <FadeInUp duration="0.6s" delay="0.2s">
 
               <LiCareer>
-                Trainee Full-Stack - 8SYS Desenvolvimento de Sistemas LTDA (03/2022 - Currently).
+                Trainee Full-Stack - 8SYS Desenvolvimento de Sistemas LTDA (03/2022 - 02/2023).
               </LiCareer>
               
             </FadeInUp>
             <FadeInUp duration="0.6s" delay="0.2s">
 
               <PCareer>I’m working directly on the production and maintenance of the company's WebSite, using HTML5, CSS3, JavaScript with JQuery framework and API with PHP.</PCareer>
+              
+            </FadeInUp>
+            
+            </ul>
+
+            <ul>
+            <FadeInUp duration="0.6s" delay="0.2s">
+
+              <LiCareer>
+                Trainee Full-Stack - QYON Sistemas Inteligentes (03/2023 - Currently).
+              </LiCareer>
+              
+            </FadeInUp>
+            <FadeInUp duration="0.6s" delay="0.2s">
+
+              <PCareer>I am working with ReactJS, Python, VueJS and Elixir in some of the company's projects</PCareer>
               
             </FadeInUp>
             

@@ -57,6 +57,10 @@ export const DescCareer = styled.div`
         margin-left: 0;
         font-size: 12px;
     }
+
+    ul{
+        margin-top: 50px;
+    }
 `
 
 export const LiCareer = styled.li`
