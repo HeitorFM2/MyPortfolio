@@ -1,0 +1,11 @@
+body {
+  transition: 300ms ease;
+}
+
+.body--light .my-class {
+  color: black;
+}
+
+.body--dark .my-class {
+  color: white;
+}
