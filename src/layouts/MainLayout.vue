@@ -5,12 +5,20 @@
         :class="
           $q.dark.isActive ? 'bg-grey-9 text-white' : 'bg-grey-4 text-black'
         "
+        ref="tab"
       >
         <div class="gt-sm">
-          <q-btn stretch flat label="Home" />
-          <q-btn stretch flat label="Career" to="/tab2" />
-          <q-btn stretch flat label="Skills" to="/" />
-          <q-btn stretch flat label="Projects" to="/" />
+          <q-btn flat label="<Heitor Melegate/>" to="/" />
+        </div>
+        <div class="gt-sm">
+          <q-btn
+            v-for="(item, index) in essentialLinks"
+            :key="index"
+            stretch
+            flat
+            :label="item.title"
+            :to="item.link"
+          />
         </div>
         <div class="lt-md">
           <q-btn
@@ -24,8 +32,8 @@
         </div>
 
         <q-space />
-        <q-tabs v-model="tab" shrink>
-          <q-tab name="tab1">
+        <q-tabs shrink>
+          <q-tab>
             <q-toggle
               v-model="darkModeToggle"
               checked-icon="nightlight"
@@ -33,11 +41,14 @@
               unchecked-icon="sunny"
               @update:model-value="setDarkMode()"
             />
-            <q-tooltip> Modo escuro </q-tooltip>
+            <q-tooltip>
+              {{ darkModeToggle ? "Modo claro" : "Modo escuro" }}
+            </q-tooltip>
           </q-tab>
-          <q-tab name="tab2" label="Portfolio v 2.0">
-            <q-tooltip> Versão do projeto </q-tooltip>
-          </q-tab>
+          <div>
+            Portfolio v 2.0
+            <q-tooltip> 2023© Heitor Melegate </q-tooltip>
+          </div>
         </q-tabs>
       </q-toolbar>
     </q-header>
@@ -54,13 +65,7 @@
     </q-drawer>
 
     <q-page-container>
-      <h1 class="my-class">AAA</h1>
-      <h1 class="my-class">AAA</h1>
-      <h1 class="my-class">AAA</h1>
-      <h1 class="my-class">AAA</h1>
-      <h1 class="my-class">AAA</h1>
-      <h1 class="my-class">AAA</h1>
-      <h1 class="my-class" name="tab2">BBB</h1>
+      <RouterView />
     </q-page-container>
   </q-layout>
 </template>
@@ -72,10 +77,29 @@ import EssentialLink from "components/EssentialLink.vue";
 
 const linksList = [
   {
-    title: "Meu Github",
-    caption: "github.com/quasarframework",
+    title: "Home",
+    icon: "home",
+    link: "/",
+  },
+  {
+    title: "Career",
+    icon: "laptop",
+    link: "/career",
+  },
+  {
+    title: "Skills",
     icon: "code",
-    link: "https://github.com/heitorfm2",
+    link: "/skills",
+  },
+  {
+    title: "Projects",
+    icon: "integration_instructions",
+    link: "/projects",
+  },
+  {
+    title: "Contact",
+    icon: "contacts",
+    link: "/contact",
   },
 ];
 
