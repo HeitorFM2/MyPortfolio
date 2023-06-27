@@ -54,6 +54,10 @@ module.exports = configure(function (ctx) {
     build: {
       vueRouterMode: 'hash', // available values: 'hash', 'history'
 
+      env: {
+        VUE_APP_EMAIL: process.env.API_URL,
+        //prod.api.com/'
+      },
       // transpile: false,
       // publicPath: '/',
 
