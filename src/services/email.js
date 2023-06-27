@@ -1,5 +1,5 @@
 import axios from "axios";
-const path = "http://localhost:8080"
+const path = "https://springboot-sendemail-production.up.railway.app"
 
 export const sendEmail = async (data) => {
   return axios.post(`${path}/sendEmail`, data).then(response => {
