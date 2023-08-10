@@ -1,7 +1,7 @@
 <template>
   <q-page class="q-pr-md q-pl-md q-pt-md q-pb-md">
     <div class="q-pa-md">
-      <div class="q-gutter-md q-mt-xl flex flex-center">
+      <div class="q-gutter-md q-mt-xl column flex-center">
         <q-intersection transition="scale">
           <q-card
             class="my-description q-pa-lg"

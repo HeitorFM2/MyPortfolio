@@ -16,31 +16,18 @@
           >
             <q-card-section>
               <q-form class="q-gutter-md" @submit.prevent="sendEmailContact">
-                <q-input
-                  label="Nome"
-                  filled
-                  v-model="formEmail.name"
-                  :rules="[
-                    (val) => val.trim().length > 0 || 'Campo obrigatório',
-                  ]"
-                />
+                <q-input label="Nome" filled v-model="formEmail.name" />
                 <q-input
                   type="email"
                   label="Email"
                   filled
                   v-model="formEmail.email"
-                  :rules="[
-                    (val) => val.trim().length > 0 || 'Campo obrigatório',
-                  ]"
                 />
                 <q-input
                   v-model="formEmail.messageBody"
                   type="textarea"
                   label="Mensagem"
                   filled
-                  :rules="[
-                    (val) => val.trim().length > 0 || 'Campo obrigatório',
-                  ]"
                   input-style="resize: none;"
                 />
 
@@ -61,7 +48,14 @@ import {
   showPositiveNotify,
   showNegativeNotify,
 } from "src/util/plugins";
-import { defineComponent, onBeforeMount, onMounted, reactive, ref } from "vue";
+import {
+  defineComponent,
+  onBeforeMount,
+  onMounted,
+  reactive,
+  ref,
+  watch,
+} from "vue";
 import { sendEmail, teste } from "src/services/email";
 export default defineComponent({
   name: "ContactPage",
@@ -99,9 +93,6 @@ export default defineComponent({
       } else {
         showNegativeNotify("Erro ao enviar email!");
       }
-      formEmail.name = "";
-      formEmail.email = "";
-      formEmail.messageBody = "";
     }
 
     return {

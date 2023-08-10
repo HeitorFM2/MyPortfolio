@@ -97,48 +97,48 @@ import { hideLoading, showLoading } from "src/util/plugins";
 const FrontEnd = [
   {
     title: "HTML5",
-    ratingModel: "5",
+    ratingModel: 5,
   },
   {
     title: "CSS3",
-    ratingModel: "4",
+    ratingModel: 4,
   },
 
   {
     title: "Javascript",
-    ratingModel: "4",
+    ratingModel: 4,
   },
   {
     title: "ReactJs",
-    ratingModel: "3",
+    ratingModel: 3,
   },
   {
     title: "VueJs",
-    ratingModel: "2",
+    ratingModel: 2,
   },
 ];
 
 const BackEnd = [
   {
     title: "SQL",
-    ratingModel: "4",
+    ratingModel: 4,
   },
   {
     title: "Python",
-    ratingModel: "3",
+    ratingModel: 3,
   },
   {
     title: "PHP",
-    ratingModel: "3",
+    ratingModel: 3,
   },
 
   {
     title: "Spring boot",
-    ratingModel: "2",
+    ratingModel: 2,
   },
   {
     title: "NodeJs",
-    ratingModel: "2",
+    ratingModel: 2,
   },
 ];
 
