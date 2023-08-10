@@ -236,7 +236,8 @@ export default defineComponent({
     });
     function downloadCV() {
       const link = document.createElement("a");
-      link.href = "/Curriculo.pdf"; // Forneça o caminho completo para o arquivo
+      link.href =
+        "https://docs.google.com/document/d/1Ms1S2OI5CH0VdJXGran7uaWMw4vgmCgg/export?format=pdf";
       link.download = "Curriculo.pdf";
       link.target = "_blank";
       link.click();
