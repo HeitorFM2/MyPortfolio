@@ -69,7 +69,7 @@
 
               <q-step
                 :name="1"
-                title="Currency"
+                title="Currently"
                 done-icon="code"
                 :done="step > 1"
                 style="max-height: 3000px"
