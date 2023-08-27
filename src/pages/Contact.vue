@@ -80,9 +80,9 @@ export default defineComponent({
 
     async function sendEmailContact() {
       state.data = {
-        nameSender: formEmail.name,
-        sender: formEmail.email,
-        messageBody: formEmail.messageBody,
+        name: formEmail.name,
+        email: formEmail.email,
+        message: formEmail.messageBody,
       };
       showLoading("Enviando email...");
       let response = await sendEmail(state.data);
