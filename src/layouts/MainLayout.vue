@@ -57,8 +57,8 @@
       <q-list>
         <q-item-label header> </q-item-label>
         <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
+          v-for="(link, index) in essentialLinks"
+          :key="index"
           v-bind="link"
         />
       </q-list>

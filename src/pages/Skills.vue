@@ -9,8 +9,8 @@
       <span class="text-caption"> Here are some of my main competencies </span>
     </div>
     <q-separator />
-    <div class="q-gutter-xl q-mt-xl row justify-center">
-      <div style="width: 500px">
+    <div class="q-ma-xl row justify-center">
+      <div style="width: 500px" class="q-pa-md">
         <q-intersection transition="scale">
           <q-list
             bordered
@@ -34,7 +34,7 @@
           </q-list>
         </q-intersection>
       </div>
-      <div style="width: 500px">
+      <div style="width: 500px" class="q-pa-md">
         <q-intersection transition="scale">
           <q-list
             bordered
@@ -74,10 +74,7 @@ const FrontEnd = [
     title: "ReactJs",
   },
   {
-    title: "VueJs",
-  },
-  {
-    title: "Quasar",
+    title: "VueJs (Quasar)",
   },
   {
     title: "HTML5",
@@ -89,16 +86,16 @@ const FrontEnd = [
 
 const BackEnd = [
   {
-    title: "SQL",
+    title: "SQL (MySQL, PostgreSQL and SQLServer)",
   },
   {
-    title: "Python (Flask, Selenium and Requests)",
+    title: "Python (Flask, FastAPI, SQL Alchemy, Selenium and Requests)",
   },
   {
-    title: "Golang",
+    title: "Golang (Gin, Gorm and Mux)",
   },
   {
-    title: "Spring boot",
+    title: "Java (Spring Boot)",
   },
   {
     title: "PHP",
