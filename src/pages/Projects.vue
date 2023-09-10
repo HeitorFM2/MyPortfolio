@@ -1,38 +1,51 @@
 <template>
-  <q-page class="q-pr-md q-pl-md q-pt-md q-pb-md">
+  <q-page class="q-pd-md">
+    <q-toolbar>
+      <q-toolbar-title class="text-center text-h2 text-weight-bold q-ma-lg">
+        My Skills
+      </q-toolbar-title>
+    </q-toolbar>
+    <p class="text-caption text-center">
+      See all my projects
+      <span
+        class="text-blue cursor-pointer"
+        @click="locationURL('https://github.com/HeitorFM2')"
+        >HERE</span
+      >
+    </p>
     <div class="flex flex-center">
-      <q-toolbar>
-        <q-toolbar-title class="text-center text-h2 text-weight-bold q-pa-md">
-          Projects
-        </q-toolbar-title>
-      </q-toolbar>
-      <div class="q-pa-md q-ma-lg" style="max-width: 950px">
-        <div class="row justify-center">
-          <q-intersection
-            v-for="(item, index) in state.projectsData"
-            :key="index"
-            class="full-width"
-            transition="scale"
-            style="max-width: 300px"
-          >
-            <q-card
-              :key="index"
-              style="height: 300px"
-              class="my-description q-ma-sm q-pa-md cursor-pointer"
-              :class="$q.dark.isActive ? 'bg-grey-10' : 'bg-grey-4'"
-              @click="locationURL(item.html_url)"
+      <q-separator style="width: 60%" />
+      <div class="q-pa-md q-ma-lg custom-carrousel">
+        <div class="q-pa-md">
+          <q-carousel animated v-model="state.slide" arrows infinite autoplay>
+            <q-carousel-slide
+              :name="1"
+              img-src="../assets/images/carrousel1.png"
+              @click="locationURL('https://askflows.vercel.app')"
             >
-              <q-card-section>
-                <div class="text-h5 text-center q-ma-md">
-                  {{ item.name }}
-                </div>
-                <q-separator />
-                <div class="text-body1 text-weight-thin text-center q-pt-md">
-                  {{ item.description }}
-                </div>
-              </q-card-section>
-            </q-card>
-          </q-intersection>
+              <div class="text-subtitle1 absolute-bottom custom-caption">
+                My social network
+              </div>
+            </q-carousel-slide>
+            <q-carousel-slide
+              :name="2"
+              img-src="../assets/images/carrousel2.png"
+              @click="locationURL('https://find-git.web.app')"
+            >
+              <div class="text-subtitle1 absolute-bottom custom-caption">
+                GitFind
+              </div>
+            </q-carousel-slide>
+            <q-carousel-slide
+              :name="3"
+              img-src="../assets/images/carrousel3.png"
+              @click="locationURL('https://reactjs-calculadora.web.app')"
+            >
+              <div class="text-subtitle1 absolute-bottom custom-caption">
+                Calculator
+              </div>
+            </q-carousel-slide>
+          </q-carousel>
         </div>
       </div>
     </div>
@@ -41,7 +54,7 @@
 
 <script>
 import { hideLoading, showLoading } from "src/util/plugins";
-import { defineComponent, onBeforeMount, onMounted, reactive } from "vue";
+import { defineComponent, onBeforeMount, reactive } from "vue";
 
 export default defineComponent({
   name: "ProjectsPage",
@@ -49,17 +62,16 @@ export default defineComponent({
   setup() {
     const state = reactive({
       projectsData: [],
+      slide: 1,
     });
 
     onBeforeMount(() => {
       showLoading("Carregando...");
-      setTimeout(() => {
+      try {
+        listProject();
+      } finally {
         hideLoading();
-      }, 100);
-    });
-
-    onMounted(() => {
-      listProject();
+      }
     });
 
     const listProject = async () => {
