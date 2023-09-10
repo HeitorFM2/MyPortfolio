@@ -92,6 +92,12 @@ const BackEnd = [
     title: "Python (Flask, FastAPI, SQL Alchemy, Selenium and Requests)",
   },
   {
+    title: "AWS",
+  },
+  {
+    title: "Docker",
+  },
+  {
     title: "Golang (Gin, Gorm and Mux)",
   },
   {

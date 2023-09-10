@@ -15,33 +15,31 @@
             >
               <q-step
                 :name="1"
-                title="03/2022"
+                title="11/2023"
                 done-icon="bi-box-arrow-in-right"
                 :done="step > 1"
                 style="min-height: 200px"
-              >
-              </q-step>
+              />
 
               <q-step
                 :name="1"
-                done-icon="bi-door-closed"
-                title="02/2023"
-                done-color="red"
+                done-icon="code"
+                title="Currently"
                 :done="step > 1"
                 style="min-height: 200px"
-              >
-              </q-step>
+              />
             </q-stepper>
             <q-card-section>
               <div class="text-h4 text-center q-mb-md">
-                Trainee Full-Stack - 8SYS Desenvolvimento de Sistemas LTDA.
+                Backend Engineer - QYON Sistemas Inteligentes
               </div>
               <q-separator />
-              <div class="text-h6 text-weight-thin text-justify q-mt-md">
+              <div class="text-h6 text-weight-thin q-mt-md">
                 <p class="text-center">
-                  I’m working directly on the production and maintenance of the
-                  company's WebSite, using HTML5, CSS3, JavaScript with JQuery
-                  framework and API with PHP.
+                  I work generally focused on the back-end using the Python
+                  language with FastAPI, Flask for RestAPIs, SQLAlchemy and
+                  Webscrapping frameworks, Java with SpringBoot and VueJS for
+                  FrontEnd. I also work with database SQL, Docker and Kubernets.
                 </p>
               </div>
             </q-card-section>
@@ -64,27 +62,71 @@
                 done-icon="bi-box-arrow-in-right"
                 :done="step > 1"
                 style="min-height: 200px"
-              >
-              </q-step>
+              />
 
               <q-step
                 :name="1"
-                title="Currently"
-                done-icon="code"
+                done-icon="bi-door-closed"
+                title="10/2023"
+                done-color="red"
                 :done="step > 1"
-                style="max-height: 3000px"
-              >
-              </q-step>
+                style="min-height: 200px"
+              />
             </q-stepper>
             <q-card-section>
               <div class="text-h4 text-center q-mb-md">
-                Trainee Back-End - QYON Sistemas Inteligentes
+                Programming Trainee - QYON Sistemas Inteligentes
               </div>
               <q-separator />
               <div class="text-h6 text-weight-thin q-mt-md">
                 <p class="text-center">
-                  I am working with ReactJS, VueJS, Python and Java (Spring
-                  boot) in some of the company's projects
+                  I worked generally focused on the back-end using the Python
+                  language with FastAPI, Flask for RestAPIs, SQLAlchemy and
+                  Webscrapping frameworks, Java with SpringBoot and VueJS for
+                  FrontEnd. I also work with database SQL.
+                </p>
+              </div>
+            </q-card-section>
+          </q-card>
+        </q-intersection>
+        <q-intersection transition="scale">
+          <q-card
+            class="my-description q-mt-xl q-pa-lg"
+            :class="$q.dark.isActive ? 'bg-grey-10' : 'bg-grey-4'"
+          >
+            <q-stepper
+              v-model="step"
+              ref="stepper"
+              class="flex flex-center"
+              :class="$q.dark.isActive ? 'bg-grey-10' : 'bg-grey-4'"
+            >
+              <q-step
+                :name="1"
+                title="03/2022"
+                done-icon="bi-box-arrow-in-right"
+                :done="step > 1"
+                style="min-height: 200px"
+              />
+
+              <q-step
+                :name="1"
+                done-icon="bi-door-closed"
+                title="02/2023"
+                done-color="red"
+                :done="step > 1"
+                style="min-height: 200px"
+              />
+            </q-stepper>
+            <q-card-section>
+              <div class="text-h4 text-center q-mb-md">
+                Trainee Full-Stack - 8SYS Desenvolvimento de Sistemas LTDA.
+              </div>
+              <q-separator />
+              <div class="text-h6 text-weight-thin text-justify q-mt-md">
+                <p class="text-center">
+                  I worked on the production and maintenance of the company's
+                  WebSite, using HTML5, CSS3, JavaScript with JQuery framework
+                  and API with PHP.
                 </p>
               </div>
             </q-card-section>

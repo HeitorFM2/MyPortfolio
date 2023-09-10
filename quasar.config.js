@@ -164,7 +164,7 @@ module.exports = configure(function (ctx) {
       manifest: {
         name: ` `,
         short_name: ` `,
-        description: `A Quasar Project`,
+        description: `My portfolio`,
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',

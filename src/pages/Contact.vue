@@ -16,7 +16,7 @@
           >
             <q-card-section>
               <q-form class="q-gutter-md" @submit.prevent="sendEmailContact">
-                <q-input label="Nome" filled v-model="formEmail.name" />
+                <q-input label="Name" filled v-model="formEmail.name" />
                 <q-input
                   type="email"
                   label="Email"
@@ -26,12 +26,12 @@
                 <q-input
                   v-model="formEmail.messageBody"
                   type="textarea"
-                  label="Mensagem"
+                  label="Message"
                   filled
                   input-style="resize: none;"
                 />
 
-                <q-btn label="Enviar" type="submit" color="primary" />
+                <q-btn label="Send" type="submit" color="primary" />
               </q-form>
             </q-card-section>
           </q-card>

@@ -91,17 +91,19 @@ export default defineComponent({
         hideLoading();
       }, 200);
     });
+
     function downloadCV() {
       const link = document.createElement("a");
-      link.href =
-        "https://docs.google.com/document/d/1Zkj8xnuHCiDF98NBwsem4l3NCjoU-078zkW9pG-V1V0/export?format=pdf";
-      link.download = "Curriculum.pdf";
+      link.href = "/Resume.pdf";
+      link.download = "Resume.pdf";
       link.target = "_blank";
       link.click();
     }
+
     function btnLink(link) {
       window.open(link, "_blank");
     }
+
     return { downloadCV, btnLink };
   },
 });

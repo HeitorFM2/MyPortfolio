@@ -73,3 +73,21 @@ body {
   width: 80rem;
   height: 60rem;
 }
+
+.custom-carrousel {
+  max-width: 90%;
+  width: 75%;
+  min-width: 400px;
+
+  .q-carousel {
+    border-radius: 5px !important;
+    height: 550px;
+    cursor: pointer;
+  }
+}
+
+.custom-caption {
+  text-align: center;
+  padding: 12px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
