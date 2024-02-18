@@ -15,7 +15,7 @@
             >
               <q-step
                 :name="1"
-                title="11/2023"
+                title="02/2024"
                 done-icon="bi-box-arrow-in-right"
                 :done="step > 1"
                 style="min-height: 200px"
@@ -31,12 +31,52 @@
             </q-stepper>
             <q-card-section>
               <div class="text-h4 text-center q-mb-md">
+                Backend Engineer - Labsoft Tecnologia LTDA.
+              </div>
+              <q-separator />
+              <div class="text-h6 text-weight-thin q-mt-md">
+                <p class="text-center">
+                  I work directly with C# using .NET to develop APIs and Backend structures.
+                </p>
+              </div>
+            </q-card-section>
+          </q-card>
+        </q-intersection>
+        <q-intersection transition="scale">
+          <q-card
+            class="my-description q-mt-xl q-pa-lg"
+            :class="$q.dark.isActive ? 'bg-grey-10' : 'bg-grey-4'"
+          >
+            <q-stepper
+              v-model="step"
+              ref="stepper"
+              class="flex flex-center"
+              :class="$q.dark.isActive ? 'bg-grey-10' : 'bg-grey-4'"
+            >
+              <q-step
+                :name="1"
+                title="11/2023"
+                done-icon="bi-box-arrow-in-right"
+                :done="step > 1"
+                style="min-height: 200px"
+              />
+              <q-step
+                :name="1"
+                done-icon="bi-door-closed"
+                title="02/2024"
+                done-color="red"
+                :done="step > 1"
+                style="min-height: 200px"
+              />
+            </q-stepper>
+            <q-card-section>
+              <div class="text-h4 text-center q-mb-md">
                 Backend Engineer - QYON Sistemas Inteligentes
               </div>
               <q-separator />
               <div class="text-h6 text-weight-thin q-mt-md">
                 <p class="text-center">
-                  I work generally focused on the back-end using the Python
+                  I worked generally focused on the back-end using the Python
                   language with FastAPI, Flask for RestAPIs, SQLAlchemy and
                   Webscrapping frameworks, Java with SpringBoot and VueJS for
                   FrontEnd. I also work with database SQL, Docker and Kubernets.
