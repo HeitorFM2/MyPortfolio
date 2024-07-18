@@ -10,8 +10,8 @@
     </div>
     <q-separator />
     <div class="q-ma-xl row justify-center">
+
       <div style="width: 500px" class="q-pa-md">
-        <q-intersection transition="scale">
           <q-list
             bordered
             class="rounded-borders"
@@ -32,11 +32,10 @@
               </q-item>
             </div>
           </q-list>
-        </q-intersection>
       </div>
+
       <div style="width: 500px" class="q-pa-md">
-        <q-intersection transition="scale">
-          <q-list
+        <q-list
             bordered
             class="rounded-borders"
             :class="!$q.dark.isActive ? 'bg-grey-4' : ''"
@@ -56,8 +55,8 @@
               </q-item>
             </div>
           </q-list>
-        </q-intersection>
-      </div>
+        </div>
+
     </div>
   </q-page>
 </template>
@@ -75,13 +74,7 @@ const FrontEnd = [
   },
   {
     title: "VueJs (Quasar)",
-  },
-  {
-    title: "HTML5",
-  },
-  {
-    title: "CSS3",
-  },
+  }
 ];
 
 const BackEnd = [
@@ -89,26 +82,20 @@ const BackEnd = [
     title: "SQL (MySQL, PostgreSQL and SQLServer)",
   },
   {
-    title: "Python (Flask, FastAPI, SQL Alchemy, Selenium and Requests)",
+    title: "Python, Golang and API Rest",
   },
   {
-    title: "AWS",
+    title: "Azure, AWS, Kubernetes and RabbitMQ",
   },
   {
-    title: "Docker",
+    title: "Docker, Git and JWT",
   },
   {
-    title: "Golang (Gin, Gorm and Mux)",
+    title: "Java and Spring Boot",
   },
   {
-    title: "Java (Spring Boot)",
-  },
-  {
-    title: "PHP",
-  },
-  {
-    title: "NodeJs",
-  },
+    title: "C#, .NET and Dapper",
+  }
 ];
 
 export default defineComponent({

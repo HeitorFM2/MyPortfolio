@@ -16,7 +16,7 @@
                   <q-separator />
                   <div class="text-h6 text-weight-thin text-justify q-mt-md">
                     <p>
-                      My name’s Heitor Melegate, I’m 19 years old and I'm a Web
+                      My name’s Heitor Melegate, I’m 20 years old and I'm a Web
                       Developer.
                     </p>
                     <p>
