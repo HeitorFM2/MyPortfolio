@@ -46,8 +46,8 @@
             </q-tooltip>
           </q-tab>
           <div>
-            Portfolio v 2.0
-            <q-tooltip> 2023© Heitor Melegate </q-tooltip>
+            Portfolio v 2.1
+            <q-tooltip> 2024© Heitor Melegate </q-tooltip>
           </div>
         </q-tabs>
       </q-toolbar>

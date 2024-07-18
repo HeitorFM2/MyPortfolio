@@ -16,7 +16,7 @@
                   <q-separator />
                   <div class="text-h6 text-weight-thin text-justify q-mt-md">
                     <p>
-                      My name’s Heitor Melegate, I’m 19 years old and I'm a Web
+                      My name’s Heitor Melegate, I’m 20 years old and I'm a Web
                       Developer.
                     </p>
                     <p>
@@ -68,8 +68,7 @@
 
           <q-img
             src="../assets/images/my.png"
-            style="height: 350px; max-width: 300px"
-            class="q-mt-lg"
+            style="height: 400px; max-width: 450px"
           />
         </div>
       </div>
