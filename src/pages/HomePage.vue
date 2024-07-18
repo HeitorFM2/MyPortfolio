@@ -68,8 +68,7 @@
 
           <q-img
             src="../assets/images/my.png"
-            style="height: 350px; max-width: 300px"
-            class="q-mt-lg"
+            style="height: 400px; max-width: 450px"
           />
         </div>
       </div>
