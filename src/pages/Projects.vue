@@ -30,7 +30,7 @@
             <q-carousel-slide
               :name="2"
               img-src="../assets/images/carrousel2.png"
-              @click="locationURL('https://find-git.web.app')"
+              @click="locationURL('https://gitfindfm.vercel.app')"
             >
               <div class="text-subtitle1 absolute-bottom custom-caption">
                 GitFind
@@ -39,7 +39,7 @@
             <q-carousel-slide
               :name="3"
               img-src="../assets/images/carrousel3.png"
-              @click="locationURL('https://reactjs-calculadora.web.app')"
+              @click="locationURL('https://calculatorfm.vercel.app')"
             >
               <div class="text-subtitle1 absolute-bottom custom-caption">
                 Calculator
