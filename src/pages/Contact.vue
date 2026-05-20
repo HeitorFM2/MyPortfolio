@@ -1,12 +1,12 @@
 <template>
-  <q-page class="q-pr-md q-pl-md q-pt-md q-pb-md">
-    <div class="flex flex-center">
-      <q-toolbar>
-        <q-toolbar-title class="text-center text-h2 text-weight-bold q-pa-md">
-          Contact me
-        </q-toolbar-title>
-      </q-toolbar>
+  <q-page class="q-pa-md">
+    <div class="text-center q-mt-md q-mb-md">
+      <div class="text-h3 text-weight-bold q-mb-sm">
+        {{ t.contact.pageTitle }}
+      </div>
     </div>
+    <q-separator class="q-mb-xl" />
+
     <div class="q-pa-md q-ma-lg">
       <div class="flex flex-center">
         <q-intersection transition="scale" style="width: 600px">
@@ -15,23 +15,22 @@
             :class="$q.dark.isActive ? 'bg-grey-10' : 'bg-grey-4'"
           >
             <q-card-section>
-              <q-form class="q-gutter-md" @submit.prevent="sendEmailContact">
-                <q-input label="Name" filled v-model="formEmail.name" />
+              <q-form class="q-gutter-md" @submit.prevent="submitForm">
+                <q-input :label="t.contact.name" filled v-model="form.name" />
                 <q-input
                   type="email"
-                  label="Email"
+                  :label="t.contact.email"
                   filled
-                  v-model="formEmail.email"
+                  v-model="form.email"
                 />
                 <q-input
-                  v-model="formEmail.messageBody"
+                  v-model="form.message"
                   type="textarea"
-                  label="Message"
+                  :label="t.contact.message"
                   filled
                   input-style="resize: none;"
                 />
-
-                <q-btn label="Send" type="submit" color="primary" />
+                <q-btn :label="t.contact.send" type="submit" color="primary" />
               </q-form>
             </q-card-section>
           </q-card>
@@ -41,65 +40,40 @@
   </q-page>
 </template>
 
-<script>
+<script setup>
+import { reactive } from "vue";
 import {
   hideLoading,
   showLoading,
   showPositiveNotify,
   showNegativeNotify,
 } from "src/util/plugins";
-import {
-  defineComponent,
-  onBeforeMount,
-  onMounted,
-  reactive,
-  ref,
-  watch,
-} from "vue";
-import { sendEmail, teste } from "src/services/email";
-export default defineComponent({
-  name: "ContactPage",
+import { sendEmail } from "src/services/email";
+import { useI18n } from "src/i18n";
 
-  setup() {
-    const state = reactive({
-      data: [],
+defineOptions({ name: "ContactPage" });
+
+const { t } = useI18n();
+const form = reactive({ name: "", email: "", message: "" });
+
+async function submitForm() {
+  showLoading(t.value.contact.sending);
+  try {
+    const response = await sendEmail({
+      name: form.name,
+      email: form.email,
+      message: form.message,
     });
-
-    const formEmail = reactive({
-      email: "",
-      messageBody: "",
-      name: "",
-    });
-
-    onBeforeMount(() => {
-      showLoading("Carregando...");
-      setTimeout(() => {
-        hideLoading();
-      }, 100);
-    });
-
-    async function sendEmailContact() {
-      state.data = {
-        name: formEmail.name,
-        email: formEmail.email,
-        message: formEmail.messageBody,
-      };
-      showLoading("Enviando email...");
-      let response = await sendEmail(state.data);
-      hideLoading();
-
-      if (response.data.success) {
-        showPositiveNotify("Email enviado com sucesso!");
-      } else {
-        showNegativeNotify("Erro ao enviar email!");
-      }
+    if (response.data.success) {
+      showPositiveNotify(t.value.contact.success);
+      Object.assign(form, { name: "", email: "", message: "" });
+    } else {
+      showNegativeNotify(t.value.contact.error);
     }
-
-    return {
-      state,
-      sendEmailContact,
-      formEmail,
-    };
-  },
-});
+  } catch {
+    showNegativeNotify(t.value.contact.error);
+  } finally {
+    hideLoading();
+  }
+}
 </script>
