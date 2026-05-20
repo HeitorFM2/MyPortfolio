@@ -113,11 +113,13 @@ const projects = computed(() => [
     stack: [
       "Vue 3",
       "Quasar",
+      ".NET 10",
       "ASP.NET Core",
       "Clean Architecture",
+      "CQRS (MediatR)",
       "Entity Framework",
+      "ASP.NET Identity",
       "JWT",
-      "Docker",
     ],
     repos: [
       { label: "API", url: "https://github.com/HeitorFM2/AskFlow.API" },
