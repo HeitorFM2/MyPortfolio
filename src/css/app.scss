@@ -2,76 +2,32 @@ body {
   transition: 300ms ease-in-out;
 }
 
-.my-card {
-  width: 100%;
-  height: 250px;
-  max-width: 250px;
-}
-
 .menu-body {
-  margin-top: 150px;
+  margin-top: 100px;
+
+  @media (max-width: 600px) {
+    margin-top: 32px;
+  }
 }
 
 .my-description {
   max-width: 900px;
 }
-.my-description::before {
-  content: "";
-  transition: 0.7s ease-in-out;
-  border-radius: 6px;
-  width: 0px;
-  height: 0px;
-  position: absolute;
-  top: -2px;
-  right: -2px;
-  border-top: 2px solid transparent;
-  border-right: 2px solid transparent;
+
+.skill-group {
+  width: 420px;
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
 }
 
-.my-description::after {
-  content: "";
-  transition: 0.7s ease-in-out;
-  border-radius: 6px;
-  width: 0px;
-  height: 0px;
-  position: absolute;
-  bottom: -1px;
-  left: -1px;
-  border-bottom: 2px solid transparent;
-  border-left: 2px solid transparent;
-}
+.project-card {
+  width: 360px;
 
-.my-description:hover::before {
-  width: 100%;
-  height: 100%;
-  border-top: 2px solid #5511c4;
-  border-right: 2px solid #5511c4;
-}
-
-.my-description:hover::after {
-  width: 100%;
-  height: 100%;
-  border-bottom: 2px solid #5511c4;
-  border-left: 2px solid #5511c4;
-}
-
-.btnLink {
-  cursor: pointer;
-}
-
-.project {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
-}
-
-.projects {
-  justify-content: center;
-  background-color: wheat;
-  width: 80rem;
-  height: 60rem;
+  @media (max-width: 400px) {
+    width: 100%;
+  }
 }
 
 .custom-carrousel {
@@ -88,6 +44,6 @@ body {
 
 .custom-caption {
   text-align: center;
-  padding: 12px;
-  background-color: rgba(0, 0, 0, 0.3);
+  padding: 12px 16px;
+  background-color: rgba(0, 0, 0, 0.55);
 }

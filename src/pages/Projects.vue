@@ -1,94 +1,153 @@
 <template>
-  <q-page class="q-pd-md">
-    <q-toolbar>
-      <q-toolbar-title class="text-center text-h2 text-weight-bold q-ma-lg">
-        Projects
-      </q-toolbar-title>
-    </q-toolbar>
-    <p class="text-caption text-center">
-      See all my projects
-      <span
-        class="text-blue cursor-pointer"
-        @click="locationURL('https://github.com/HeitorFM2')"
-        >HERE</span
-      >
-    </p>
-    <div class="flex flex-center">
-      <q-separator style="width: 60%" />
-      <div class="q-pa-md q-ma-lg custom-carrousel">
-        <div class="q-pa-md">
-          <q-carousel animated v-model="state.slide" arrows infinite autoplay>
-            <q-carousel-slide
-              :name="1"
-              img-src="../assets/images/carrousel1.png"
-              @click="locationURL('https://askflows.vercel.app')"
-            >
-              <div class="text-subtitle1 absolute-bottom custom-caption">
-                My social network
-              </div>
-            </q-carousel-slide>
-            <q-carousel-slide
-              :name="2"
-              img-src="../assets/images/carrousel2.png"
-              @click="locationURL('https://gitfindfm.vercel.app')"
-            >
-              <div class="text-subtitle1 absolute-bottom custom-caption">
-                GitFind
-              </div>
-            </q-carousel-slide>
-            <q-carousel-slide
-              :name="3"
-              img-src="../assets/images/carrousel3.png"
-              @click="locationURL('https://calculatorfm.vercel.app')"
-            >
-              <div class="text-subtitle1 absolute-bottom custom-caption">
-                Calculator
-              </div>
-            </q-carousel-slide>
-          </q-carousel>
-        </div>
+  <q-page class="q-pa-md">
+    <div class="text-center q-mt-md q-mb-md">
+      <div class="text-h3 text-weight-bold q-mb-sm">
+        {{ t.projects.pageTitle }}
       </div>
+      <div class="text-caption text-grey-6">
+        {{ t.projects.subtitle }}
+        <span
+          class="text-primary cursor-pointer"
+          @click="openLink('https://github.com/HeitorFM2')"
+        >
+          GitHub
+        </span>
+      </div>
+    </div>
+    <q-separator class="q-mb-xl" />
+
+    <div class="row justify-center q-gutter-lg q-pa-md">
+      <q-card
+        v-for="project in projects"
+        :key="project.name"
+        class="project-card flex column"
+        :class="$q.dark.isActive ? 'bg-grey-10' : 'bg-grey-4'"
+      >
+        <q-img
+          :src="project.image"
+          height="180px"
+          style="cursor: pointer"
+          @click="
+            openLink(project.live || project.repos?.[0]?.url || project.github)
+          "
+        >
+          <div v-if="project.featured" class="absolute-top-right q-pa-sm">
+            <q-chip color="accent" text-color="white" dense icon="star">
+              {{ t.projects.featured }}
+            </q-chip>
+          </div>
+        </q-img>
+
+        <q-card-section class="col">
+          <div class="text-h6 text-weight-bold q-mb-xs">{{ project.name }}</div>
+          <div class="text-body2 text-grey-6 q-mb-md">
+            {{ project.description }}
+          </div>
+          <div class="q-gutter-xs">
+            <q-chip
+              v-for="tech in project.stack"
+              :key="tech"
+              dense
+              size="sm"
+              color="primary"
+              text-color="white"
+            >
+              {{ tech }}
+            </q-chip>
+          </div>
+        </q-card-section>
+
+        <q-separator />
+
+        <q-card-actions>
+          <template v-if="project.repos">
+            <q-btn
+              v-for="repo in project.repos"
+              :key="repo.label"
+              flat
+              dense
+              icon="bi-github"
+              :label="repo.label"
+              @click="openLink(repo.url)"
+            />
+          </template>
+          <q-btn
+            v-else-if="project.github"
+            flat
+            dense
+            icon="bi-github"
+            :label="t.projects.github"
+            @click="openLink(project.github)"
+          />
+          <q-space />
+          <q-btn
+            v-if="project.live"
+            flat
+            dense
+            icon="open_in_new"
+            :label="t.projects.live"
+            color="primary"
+            @click="openLink(project.live)"
+          />
+        </q-card-actions>
+      </q-card>
     </div>
   </q-page>
 </template>
 
-<script>
-import { hideLoading, showLoading } from "src/util/plugins";
-import { defineComponent, onBeforeMount, reactive } from "vue";
+<script setup>
+import { computed } from "vue";
+import { useI18n } from "src/i18n";
+import imgAskflow from "../assets/images/askflow.png";
+import imgGitfind from "../assets/images/gitfind.png";
+import imgCalculator from "../assets/images/calculator.png";
 
-export default defineComponent({
-  name: "ProjectsPage",
+defineOptions({ name: "ProjectsPage" });
 
-  setup() {
-    const state = reactive({
-      projectsData: [],
-      slide: 1,
-    });
+const { t } = useI18n();
 
-    onBeforeMount(() => {
-      showLoading("Carregando...");
-      try {
-        listProject();
-      } finally {
-        hideLoading();
-      }
-    });
-
-    const listProject = async () => {
-      const userData = await fetch(`https://api.github.com/users/HeitorFM2`);
-      const newUser = await userData.json();
-
-      if (newUser.name) {
-        const reposData = await fetch(
-          `https://api.github.com/users/HeitorFM2/repos`
-        );
-        state.projectsData = await reposData.json();
-      }
-    };
-    function locationURL(link) {
-      window.open(link, "_blank");
-    }
-    return { state, locationURL };
+const projects = computed(() => [
+  {
+    name: "AskFlow",
+    description: t.value.projects.items.askflow.description,
+    stack: [
+      "Vue 3",
+      "Quasar",
+      "ASP.NET Core",
+      "Clean Architecture",
+      "Entity Framework",
+      "JWT",
+      "Docker",
+    ],
+    repos: [
+      { label: "API", url: "https://github.com/HeitorFM2/AskFlow.API" },
+      { label: "WebApp", url: "https://github.com/HeitorFM2/AskFlow.WebApp" },
+    ],
+    live: "https://askflows.cloud",
+    image: imgAskflow,
+    featured: true,
   },
-});
+  {
+    name: "GitFind",
+    description: t.value.projects.items.gitfind.description,
+    stack: ["JavaScript", "React", "GitHub API"],
+    github: null,
+    live: "https://gitfindfm.vercel.app",
+    image: imgGitfind,
+    featured: false,
+  },
+  {
+    name: "Calculator",
+    description: t.value.projects.items.calculator.description,
+    stack: ["JavaScript", "HTML", "CSS"],
+    github: null,
+    live: "https://calculatorfm.vercel.app",
+    image: imgCalculator,
+    featured: false,
+  },
+]);
+
+function openLink(url) {
+  if (url) window.open(url, "_blank");
+}
 </script>
