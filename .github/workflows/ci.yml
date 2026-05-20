@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - master
+      - "release/**"
+  push:
+    branches:
+      - master
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-branch:
+    name: Validate branch name
+    if: github.event_name == 'pull_request' && github.base_ref == 'master'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check naming convention
+        env:
+          BRANCH: ${{ github.head_ref }}
+        run: |
+          pattern="^(feature|bug|bugfix|fix|hotfix|chore|refactor|docs|test)/[a-zA-Z0-9._/-]+$"
+          if [[ ! "$BRANCH" =~ $pattern ]]; then
+            echo "::error::Branch '$BRANCH' violates the naming convention."
+            echo "Required format: <prefix>/<name>"
+            echo "Accepted prefixes: feature | bug | bugfix | fix | hotfix | chore | refactor | docs | test"
+            exit 1
+          fi
+          echo "Branch name valid: $BRANCH"
+
+  build-and-test:
+    name: Lint, Format & Build
+    needs: validate-branch
+    if: ${{ always() && (needs.validate-branch.result == 'success' || needs.validate-branch.result == 'skipped') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Check formatting
+        run: npm run format:check
+
+      - name: Build
+        run: npx quasar build
+        env:
+          API_URL: ${{ secrets.API_URL || '' }}
