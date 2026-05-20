@@ -4,8 +4,8 @@ export function showLoading(message) {
   Loading.show({
     message: message,
     spinner: QSpinnerBars,
-    spinnerColor: "teal-6"
-  })
+    spinnerColor: "teal-6",
+  });
 }
 
 export function hideLoading() {
@@ -19,11 +19,11 @@ export function showPositiveNotify(message, action) {
     actions: [
       {
         icon: "close",
-        color: "white"
-      }
+        color: "white",
+      },
     ],
-    onDismiss: action
-  })
+    onDismiss: action,
+  });
 }
 
 export function showNegativeNotify(message, action) {
@@ -33,8 +33,8 @@ export function showNegativeNotify(message, action) {
     actions: [
       {
         icon: "close",
-        color: "white"
-      }
+        color: "white",
+      },
     ],
-  })
+  });
 }
