@@ -5,7 +5,6 @@
         :class="
           $q.dark.isActive ? 'bg-grey-9 text-white' : 'bg-grey-4 text-black'
         "
-        ref="tab"
       >
         <div class="gt-sm">
           <q-btn flat label="<Heitor Melegate/>" to="/" />
@@ -32,6 +31,15 @@
         </div>
 
         <q-space />
+
+        <q-btn
+          flat
+          dense
+          class="q-mr-sm"
+          :label="currentLang === 'en' ? 'PT-BR' : 'EN'"
+          @click="toggleLang"
+        />
+
         <q-tabs shrink>
           <q-tab>
             <q-toggle
@@ -39,15 +47,15 @@
               checked-icon="nightlight"
               color="black"
               unchecked-icon="sunny"
-              @update:model-value="setDarkMode()"
+              @update:model-value="setDarkMode"
             />
             <q-tooltip>
-              {{ darkModeToggle ? "Modo claro" : "Modo escuro" }}
+              {{ darkModeToggle ? t.darkMode.light : t.darkMode.dark }}
             </q-tooltip>
           </q-tab>
           <div>
-            Portfolio v 2.1
-            <q-tooltip> 2024© Heitor Melegate </q-tooltip>
+            Portfolio v 2
+            <q-tooltip>2026© Heitor Melegate</q-tooltip>
           </div>
         </q-tabs>
       </q-toolbar>
@@ -55,7 +63,7 @@
 
     <q-drawer v-model="leftDrawerOpen" bordered>
       <q-list>
-        <q-item-label header> </q-item-label>
+        <q-item-label header />
         <EssentialLink
           v-for="(link, index) in essentialLinks"
           :key="index"
@@ -70,85 +78,37 @@
   </q-layout>
 </template>
 
-<script>
-import { defineComponent, ref } from "vue";
+<script setup>
+import { ref, computed } from "vue";
 import { Dark } from "quasar";
 import EssentialLink from "components/EssentialLink.vue";
+import { useI18n } from "src/i18n";
 
-const linksList = [
+defineOptions({ name: "MainLayout" });
+
+const { t, currentLang, toggleLang } = useI18n();
+
+const leftDrawerOpen = ref(false);
+const darkModeToggle = ref(true);
+Dark.set(true);
+
+const essentialLinks = computed(() => [
+  { title: t.value.nav.home, icon: "home", link: "/" },
+  { title: t.value.nav.career, icon: "laptop", link: "/career" },
+  { title: t.value.nav.skills, icon: "code", link: "/skills" },
   {
-    title: "Home",
-    icon: "home",
-    link: "/",
-  },
-  {
-    title: "Career",
-    icon: "laptop",
-    link: "/career",
-  },
-  {
-    title: "Skills",
-    icon: "code",
-    link: "/skills",
-  },
-  {
-    title: "Projects",
+    title: t.value.nav.projects,
     icon: "integration_instructions",
     link: "/projects",
   },
-  {
-    title: "Contact",
-    icon: "contacts",
-    link: "/contact",
-  },
-];
+  { title: t.value.nav.contact, icon: "contacts", link: "/contact" },
+]);
 
-export default defineComponent({
-  name: "MainLayout",
+function toggleLeftDrawer() {
+  leftDrawerOpen.value = !leftDrawerOpen.value;
+}
 
-  components: {
-    EssentialLink,
-  },
-
-  setup() {
-    const leftDrawerOpen = ref(false);
-    Dark.set(true);
-
-    const animateDarkMode = (isDark) => {
-      let root = document.documentElement;
-      let initialColor = root.style.getPropertyValue("--bg-color-inverted");
-
-      let finalColor = isDark ? "#252525" : "#fefefe";
-
-      let animation = root.animate(
-        {
-          "--bg-color-inverted": [initialColor, finalColor],
-          "--text-color": [initialColor, finalColor],
-        },
-        {
-          duration: 200,
-          fill: "both",
-          easing: "ease",
-        }
-      );
-
-      animation.play();
-    };
-
-    return {
-      darkModeToggle: ref(true),
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      animateDarkMode,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
-      },
-      setDarkMode() {
-        let darkMode = Dark.isActive;
-        Dark.set((darkMode = !darkMode));
-        animateDarkMode(darkMode);
-      },
-    };
-  },
-});
+function setDarkMode() {
+  Dark.set(!Dark.isActive);
+}
 </script>

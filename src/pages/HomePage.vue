@@ -1,109 +1,115 @@
 <template>
-  <q-page class="q-pr-md q-pl-md q-pt-md q-pb-md">
-    <div class="q-pa-md">
-      <div class="menu-body">
-        <div class="row justify-evenly">
-          <div>
-            <q-intersection transition="scale">
-              <q-card
-                class="my-description q-pa-xl"
-                :class="$q.dark.isActive ? 'bg-grey-10' : 'bg-grey-4'"
-              >
-                <q-card-section>
-                  <div class="text-h4 text-center q-mb-md">
-                    Hey ! Welcome to my portfolio
-                  </div>
-                  <q-separator />
-                  <div class="text-h6 text-weight-thin text-justify q-mt-md">
-                    <p>
-                      My name’s Heitor Melegate, I’m 20 years old and I'm a Web
-                      Developer.
-                    </p>
-                    <p>
-                      I'm a programmer fascinated by technology, and I'm a
-                      systems development technician at Senai. I'm currently
-                      studying Systems Analysis and Development at FATEC
-                      Americana.
-                    </p>
-                  </div>
-                </q-card-section>
-              </q-card>
-              <div class="q-mt-lg">
-                <q-btn
-                  color="primary"
-                  icon-right="file_download"
-                  label="Download Curriculum"
-                  @click="downloadCV"
-                />
-                <q-icon
-                  name="bi-github"
-                  color="primary"
-                  size="32px"
-                  @click="btnLink('https://github.com/HeitorFM2')"
-                  class="q-mx-lg btnLink"
-                />
-                <q-icon
-                  name="bi-linkedin"
-                  color="primary"
-                  size="32px"
-                  @click="
-                    btnLink('https://www.linkedin.com/in/heitor-melegate/')
-                  "
-                  class="btnLink q-mr-lg"
-                />
-                <q-icon
-                  name="bi-instagram"
-                  color="primary"
-                  size="32px"
-                  @click="
-                    btnLink(
-                      'https://instagram.com/heitorfm_dev?igshid=MzNlNGNkZWQ4Mg=='
-                    )
-                  "
-                  class="btnLink"
-                />
+  <q-page class="q-pa-md">
+    <div class="menu-body">
+      <div class="row justify-evenly items-center q-col-gutter-xl">
+        <q-intersection transition="scale">
+          <q-card
+            class="my-description q-pa-xl"
+            :class="$q.dark.isActive ? 'bg-grey-10' : 'bg-grey-4'"
+          >
+            <q-card-section>
+              <div class="text-h4 text-weight-bold q-mb-xs">
+                Heitor Melegate
               </div>
-            </q-intersection>
-          </div>
+              <div class="text-h6 text-primary q-mb-md">{{ t.home.role }}</div>
+              <q-separator class="q-mb-md" />
+              <div class="text-body1 text-weight-light text-justify q-mb-md">
+                {{ t.home.bio }}
+              </div>
+              <div class="q-gutter-xs">
+                <q-chip
+                  v-for="tag in stack"
+                  :key="tag"
+                  dense
+                  color="primary"
+                  text-color="white"
+                >
+                  {{ tag }}
+                </q-chip>
+              </div>
+            </q-card-section>
 
-          <q-img
-            src="../assets/images/my.png"
-            style="height: 400px; max-width: 450px"
-          />
-        </div>
+            <q-card-actions class="q-mt-sm q-gutter-sm">
+              <q-btn
+                color="primary"
+                icon-right="file_download"
+                :label="t.home.downloadCV"
+                @click="downloadCV"
+              />
+              <q-btn
+                round
+                flat
+                icon="bi-github"
+                color="primary"
+                @click="openLink('https://github.com/HeitorFM2')"
+              >
+                <q-tooltip>GitHub</q-tooltip>
+              </q-btn>
+              <q-btn
+                round
+                flat
+                icon="bi-linkedin"
+                color="primary"
+                @click="
+                  openLink(
+                    'https://www.linkedin.com/in/heitor-melegate-a0b6b922a/'
+                  )
+                "
+              >
+                <q-tooltip>LinkedIn</q-tooltip>
+              </q-btn>
+              <q-btn
+                round
+                flat
+                icon="bi-instagram"
+                color="primary"
+                @click="openLink('https://www.instagram.com/heitorfm_dev')"
+              >
+                <q-tooltip>Instagram</q-tooltip>
+              </q-btn>
+            </q-card-actions>
+          </q-card>
+        </q-intersection>
+
+        <q-img
+          src="../assets/images/my.png"
+          class="gt-sm"
+          style="height: 400px; max-width: 420px; border-radius: 12px"
+        />
       </div>
     </div>
   </q-page>
 </template>
 
-<script>
-import { hideLoading, showLoading } from "src/util/plugins";
-import { defineComponent, onBeforeMount } from "vue";
+<script setup>
+import { useI18n } from "src/i18n";
 
-export default defineComponent({
-  name: "HomePage",
+defineOptions({ name: "HomePage" });
 
-  setup() {
-    onBeforeMount(() => {
-      showLoading("Carregando...");
-      setTimeout(() => {
-        hideLoading();
-      }, 200);
-    });
+const { t, currentLang } = useI18n();
 
-    function downloadCV() {
-      const link = document.createElement("a");
-      link.href = "/Resume.pdf";
-      link.download = "Resume.pdf";
-      link.target = "_blank";
-      link.click();
-    }
+const cvFiles = {
+  en: "/Heitor_Melegate_Resume.pdf",
+  "pt-BR": "/Heitor_Melegate_Curriculo.pdf",
+};
 
-    function btnLink(link) {
-      window.open(link, "_blank");
-    }
+const stack = [
+  "C# / .NET",
+  "Java",
+  "Go",
+  "Microservices",
+  "Docker",
+  "Kubernetes",
+];
 
-    return { downloadCV, btnLink };
-  },
-});
+function downloadCV() {
+  const link = document.createElement("a");
+  link.href = cvFiles[currentLang.value];
+  link.download = cvFiles[currentLang.value].slice(1);
+  link.click();
+}
+
+function openLink(url) {
+  window.open(url, "_blank");
+}
 </script>
