@@ -62,7 +62,7 @@ const messages = {
       items: {
         askflow: {
           description:
-            "Full-stack social platform composed of a Vue 3 / Quasar frontend (AskFlow.WebApp) and a high-performance ASP.NET Core backend (AskFlow.API), built with Clean Architecture, JWT authentication, and Docker support.",
+            "Full-stack social platform composed of a Vue 3 / Quasar frontend (AskFlow.WebApp) and a high-performance .NET 10 / ASP.NET Core backend (AskFlow.API), built with Clean Architecture, CQRS (MediatR), and JWT authentication.",
         },
         gitfind: {
           description:
@@ -148,7 +148,7 @@ const messages = {
       items: {
         askflow: {
           description:
-            "Plataforma social full-stack composta por um frontend Vue 3 / Quasar (AskFlow.WebApp) e um backend ASP.NET Core de alta performance (AskFlow.API), construído com Clean Architecture, autenticação JWT e suporte a Docker.",
+            "Plataforma social full-stack composta por um frontend Vue 3 / Quasar (AskFlow.WebApp) e um backend .NET 10 / ASP.NET Core de alta performance (AskFlow.API), construído com Clean Architecture, CQRS (MediatR) e autenticação JWT.",
         },
         gitfind: {
           description:
